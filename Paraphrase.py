@@ -4,7 +4,6 @@ from fastapi import FastAPI, Request
 from sentence_transformers import SentenceTransformer, util
 from starlette.responses import FileResponse 
 from fastapi.staticfiles import StaticFiles
-from fastapi.middleware.cors import CORSMiddleware
 import torch
 
 app = FastAPI()
@@ -14,19 +13,6 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 tokenizer = T5TokenizerFast.from_pretrained('./Model')
 model = T5ForConditionalGeneration.from_pretrained('./Model').to(device)
 sen_model = SentenceTransformer('paraphrase-MiniLM-L3-v2').to(device)
-
-# Added due to running into CORSEMIDDLEware error during testing:
-origins = [
-    "http://localhost:8000",
-    "http://127.0.0.1::8000"
-]
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 # Format used in training to tell the model how much to vary inputted text
 distance = {1: "small", 2: "medium", 3: "large", 4: "gigantic"}
@@ -52,7 +38,7 @@ async def read_index():
     return FileResponse('public/index.html')  # change to this
 
 #Calls the model and returns the paraphrased output and some simple metrics. 
-@app.post('/test/')
+@app.post('/paraphrase/')
 async def main(item: Request):
     userInput = await item.json()
     input_string = get_input_string(

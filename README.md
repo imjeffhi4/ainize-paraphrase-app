@@ -1,5 +1,7 @@
 # Paraphrase Server
 
+[![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=https://github.com/imjeffhi4/ainize-paraphrase-app)
+
 A FastAPI implementation of a fine-tuned T5 model that generates paraphrases. 
 
 # How to run

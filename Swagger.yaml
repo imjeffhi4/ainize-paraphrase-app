@@ -13,10 +13,10 @@ paths:
           content:
             application/json:
               schema: {}
-  /test/:
+  /paraphrase/:
     post:
       summary: Main
-      operationId: main_test__post
+      operationId: main_paraphrase__post
       responses:
         '200':
           description: Successful Response

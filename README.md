@@ -1,25 +1,9 @@
-# Paraphrase Server
+# Paraphrase Model
 
-[![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=https://github.com/imjeffhi4/ainize-paraphrase-app)
+To collect the paraphrase data, first download the [OpenStax Sentences dataset](http://www.kaggle.com/dataset/8c4350112049394cc697b89fec03846eee82942d3665c433cda01d6622553e19). Once this is completely, run "data_collection.ipynb". This will create two files "train_ds.json" and "test_ds.json".  
 
-A FastAPI implementation of a fine-tuned T5 model that generates paraphrases. 
+Once this is complete, you may train the model with the following code.
 
-# How to run
-
-Building docker image:
-
-```docker
-docker build --no-cache -t paraphrase .
 ```
-
-You can then run with:
-
-```docker
-docker run -p 8000:8000 paraphrase
+python paraphrase_generator.py
 ```
-
-# Using the WebApp
-
-To use the web app, navigate to [localhost:8000](http://localhost:8000) in your browser. You may then use the sliders to vary how much you want the model to *attempt* to vary the original text. 
-
-![Untitled](Paraphrase%20Server%20f294c40523ae4c908e7548b15b2de07e/Untitled.png)

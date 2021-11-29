@@ -8,9 +8,7 @@ from transformers.optimization import AdamW
 from pytorch_lightning.callbacks import Callback
 from tqdm import tqdm
 
-
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
-save_path = './Models/paraphrase_8'
+save_path = './Models/paraphrase'
 
 try:
     os.mkdir(save_path)
@@ -24,7 +22,7 @@ class ParaphraseGenerator(pl.LightningModule):
         model_name = 't5-base'
         self.model = T5ForConditionalGeneration.from_pretrained(model_name)
         self.tokenizer = T5TokenizerFast.from_pretrained(model_name)
-        self.batch_size = 12
+        self.batch_size = 16
         self.lr = 4e-5
 
     def encode_text(self, data_path):

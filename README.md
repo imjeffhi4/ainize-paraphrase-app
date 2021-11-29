@@ -1,8 +1,6 @@
 # Paraphrase Server
 
-[![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=https://github.com/imjeffhi4/ainize-paraphrase-app)
-
-A FastAPI implementation of a fine-tuned T5 model that generates paraphrases. 
+A FastAPI implementation of a fine-tuned T5 model that generates paraphrases. If you'd like to demo this project, you can do so [here](https://finished-ainize-paraphrase-app-imjeffhi4.endpoint.ainize.ai/). If you'd like a more in-depth overview of how it works, check out my [blog post](https://medium.com/@imjeffhi4/creating-a-paraphrase-generator-model-using-t5-and-deploying-on-ainize-7742bc83532a) on Medium. 
 
 # How to run
 
@@ -22,4 +20,4 @@ docker run -p 8000:8000 paraphrase
 
 To use the web app, navigate to [localhost:8000](http://localhost:8000) in your browser. You may then use the sliders to vary how much you want the model to *attempt* to vary the original text. 
 
-![Untitled](Paraphrase%20Server%20f294c40523ae4c908e7548b15b2de07e/Untitled.png)
+![https://i.ibb.co/JyxTKrp/ezgif-6-06f407acb047.gif](https://i.ibb.co/JyxTKrp/ezgif-6-06f407acb047.gif)
